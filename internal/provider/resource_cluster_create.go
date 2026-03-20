@@ -413,6 +413,11 @@ func flattenKubeAPI(api interface{}) v1alpha4.SimpleExposureOpts {
 
 func flattenK3DOptions(k3d interface{}) (v1alpha4.SimpleConfigOptionsK3d, error) {
 	k3dList := k3d.(*schema.Set).List()
+
+	if len(k3dList) == 0 {
+		return v1alpha4.SimpleConfigOptionsK3d{}, nil
+	}
+
 	k := k3dList[0].(map[string]interface{})
 
 	k3DOptions := v1alpha4.SimpleConfigOptionsK3d{
