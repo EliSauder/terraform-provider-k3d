@@ -415,7 +415,13 @@ func flattenK3DOptions(k3d interface{}) (v1alpha4.SimpleConfigOptionsK3d, error)
 	k3dList := k3d.(*schema.Set).List()
 
 	if len(k3dList) == 0 {
-		return v1alpha4.SimpleConfigOptionsK3d{}, nil
+		return v1alpha4.SimpleConfigOptionsK3d{
+			Wait:                true,
+			DisableLoadbalancer: false,
+			DisableImageVolume:  false,
+			NoRollback:          false,
+			Loadbalancer:        v1alpha4.SimpleConfigOptionsK3dLoadbalancer{},
+		}, nil
 	}
 
 	k := k3dList[0].(map[string]interface{})
