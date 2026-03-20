@@ -472,15 +472,17 @@ func flattenExtraArgs(extraArgs []interface{}) []v1alpha4.K3sArgWithNodeFilters 
 	return k3sExtraArgs
 }
 
-func flattenNodeLabels(nodeLabels interface{}) []v1alpha4.LabelWithNodeFilters {
+func flattenNodeLabels(nodeLabels []interface{}) []v1alpha4.LabelWithNodeFilters {
 	k3sNodeLabels := make([]v1alpha4.LabelWithNodeFilters, 0)
 
-	for _, port := range nodeLabels.(*schema.Set).List() {
-		e := port.(map[string]interface{})
-		k3sNodeLabels = append(k3sNodeLabels, v1alpha4.LabelWithNodeFilters{
-			Label:       fmt.Sprintf("%s=%s", e["key"].(string), e["value"].(string)),
-			NodeFilters: utils.GetSlice(e["node_filters"].([]interface{})),
-		})
+	for _, nl := range nodeLabels {
+		for _, port := range nl.(*schema.Set).List() {
+			e := port.(map[string]interface{})
+			k3sNodeLabels = append(k3sNodeLabels, v1alpha4.LabelWithNodeFilters{
+				Label:       fmt.Sprintf("%s=%s", e["key"].(string), e["value"].(string)),
+				NodeFilters: utils.GetSlice(e["node_filters"].([]interface{})),
+			})
+		}
 	}
 
 	return k3sNodeLabels
