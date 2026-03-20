@@ -4,14 +4,20 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/rancher/k3d/v5/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/config"
-	"github.com/rancher/k3d/v5/pkg/config/v1alpha4"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
+	"github.com/k3d-io/k3d/v5/pkg/client"
+	"github.com/k3d-io/k3d/v5/pkg/config"
+	"github.com/k3d-io/k3d/v5/pkg/config/v1alpha4"
+	"github.com/k3d-io/k3d/v5/pkg/config/v1alpha5"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 )
 
 func CreateCluster(ctx context.Context, runtime runtimes.Runtime, cfg *v1alpha4.SimpleConfig) error {
-	clusterConfig, err := config.TransformSimpleToClusterConfig(ctx, runtime, *cfg)
+	cfgt, err := v1alpha5.MigrateV1Alpha4(cfg)
+	if err != nil {
+		return err
+	}
+	cfg5 := cfgt.(*v1alpha5.SimpleConfig)
+	clusterConfig, err := config.TransformSimpleToClusterConfig(ctx, runtime, *cfg5, "")
 	if err != nil {
 		return err
 	}

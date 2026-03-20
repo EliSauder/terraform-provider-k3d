@@ -3,10 +3,10 @@ package cluster
 import (
 	"context"
 
+	"github.com/k3d-io/k3d/v5/pkg/client"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 	"github.com/nikhilsbhat/terraform-provider-k3d/pkg/utils"
-	"github.com/rancher/k3d/v5/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
 )
 
 func (cfg *Config) StartStopCluster(ctx context.Context, runtime runtimes.Runtime, clusters []string) error {

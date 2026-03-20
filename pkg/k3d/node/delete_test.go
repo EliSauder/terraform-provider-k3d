@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 	"github.com/nikhilsbhat/terraform-provider-k3d/pkg/k3d/node"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
 )
 
 func TestConfig_DeleteNodesFromCluster(t *testing.T) {

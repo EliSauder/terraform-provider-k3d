@@ -3,7 +3,7 @@ package cluster
 import (
 	"context"
 
-	"github.com/rancher/k3d/v5/pkg/runtimes"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 )
 
 type Cluster interface {

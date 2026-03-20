@@ -3,8 +3,8 @@ package image
 import (
 	"context"
 
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 	cluster2 "github.com/nikhilsbhat/terraform-provider-k3d/pkg/k3d/cluster"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
 )
 
 // List returns list of images loaded to the clusters.

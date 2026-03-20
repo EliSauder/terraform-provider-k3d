@@ -6,8 +6,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 	utils2 "github.com/nikhilsbhat/terraform-provider-k3d/pkg/utils"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
 )
 
 // Config holds the base configurations for creation of k3d cluster.

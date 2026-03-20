@@ -6,10 +6,10 @@ import (
 	"log"
 
 	dockerunits "github.com/docker/go-units"
+	"github.com/k3d-io/k3d/v5/pkg/client"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 	"github.com/nikhilsbhat/terraform-provider-k3d/pkg/k3d/cluster"
-	"github.com/rancher/k3d/v5/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
 )
 
 //nolint:gochecknoinits

@@ -3,11 +3,11 @@ package registry
 import (
 	"context"
 
+	"github.com/k3d-io/k3d/v5/pkg/client"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 	"github.com/nikhilsbhat/terraform-provider-k3d/pkg/k3d/cluster"
 	k3dNode "github.com/nikhilsbhat/terraform-provider-k3d/pkg/k3d/node"
-	"github.com/rancher/k3d/v5/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
 )
 
 func (registry *Config) Connect(ctx context.Context, runtime runtimes.Runtime) error {

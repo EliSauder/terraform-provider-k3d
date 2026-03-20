@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/rancher/k3d/v5/pkg/runtimes"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 )
 
 const (

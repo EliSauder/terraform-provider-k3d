@@ -3,9 +3,9 @@ package cluster
 import (
 	"context"
 
-	"github.com/rancher/k3d/v5/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
+	"github.com/k3d-io/k3d/v5/pkg/client"
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 	"github.com/thoas/go-funk"
 )
 

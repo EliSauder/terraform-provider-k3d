@@ -3,8 +3,8 @@ package image
 import (
 	"context"
 
+	"github.com/k3d-io/k3d/v5/pkg/runtimes"
 	"github.com/nikhilsbhat/terraform-provider-k3d/pkg/client"
-	"github.com/rancher/k3d/v5/pkg/runtimes"
 )
 
 type Images interface {

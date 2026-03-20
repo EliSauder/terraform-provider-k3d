@@ -2,7 +2,7 @@ package registry
 
 import (
 	"github.com/docker/go-connections/nat"
-	K3D "github.com/rancher/k3d/v5/pkg/types"
+	K3D "github.com/k3d-io/k3d/v5/pkg/types"
 )
 
 // GetExposureOpts fetches expose data and adds it to K3D.Config.
