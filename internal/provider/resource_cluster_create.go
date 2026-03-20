@@ -456,15 +456,17 @@ func flattenK3SOptions(k3s interface{}) v1alpha4.SimpleConfigOptionsK3s {
 	return k3sOptions
 }
 
-func flattenExtraArgs(extraArgs interface{}) []v1alpha4.K3sArgWithNodeFilters {
+func flattenExtraArgs(extraArgs []interface{}) []v1alpha4.K3sArgWithNodeFilters {
 	k3sExtraArgs := make([]v1alpha4.K3sArgWithNodeFilters, 0)
 
-	for _, port := range extraArgs.(*schema.Set).List() {
-		e := port.(map[string]interface{})
-		k3sExtraArgs = append(k3sExtraArgs, v1alpha4.K3sArgWithNodeFilters{
-			Arg:         fmt.Sprintf("--%s=%s", e["key"].(string), e["value"].(string)),
-			NodeFilters: utils.GetSlice(e["node_filters"].([]interface{})),
-		})
+	for _, arg := range extraArgs {
+		for _, port := range arg.(*schema.Set).List() {
+			e := port.(map[string]interface{})
+			k3sExtraArgs = append(k3sExtraArgs, v1alpha4.K3sArgWithNodeFilters{
+				Arg:         fmt.Sprintf("--%s=%s", e["key"].(string), e["value"].(string)),
+				NodeFilters: utils.GetSlice(e["node_filters"].([]interface{})),
+			})
+		}
 	}
 
 	return k3sExtraArgs
