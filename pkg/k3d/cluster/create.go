@@ -16,8 +16,8 @@ func CreateCluster(ctx context.Context, runtime runtimes.Runtime, cfg *v1alpha4.
 	if err != nil {
 		return err
 	}
-	cfg5 := cfgt.(*v1alpha5.SimpleConfig)
-	clusterConfig, err := config.TransformSimpleToClusterConfig(ctx, runtime, *cfg5, "")
+	cfg5 := cfgt.(v1alpha5.SimpleConfig)
+	clusterConfig, err := config.TransformSimpleToClusterConfig(ctx, runtime, cfg5, "")
 	if err != nil {
 		return err
 	}
